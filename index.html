@@ -1,0 +1,321 @@
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+table, th, td {
+    border: 1px solid black; 
+    border-collapse: collapse;  
+}
+</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information Sheet</title>
+</head>
+<body>
+    <table>
+        <tr bgcolor="skyblue">
+            <th>Industry Analysis</th>
+            <th>C1</th>
+            <th>score C1</th>
+            <th>C2</th>
+            <th>score C2</th>
+            <th>C2</th>
+            <th>score C2</th>
+        </tr>
+        <tr>
+            <td>industry Growth</td>
+            <td>
+                <select onchange="changescore1(this)">
+                    <option value="Growing industry">Growing industry</option>
+                    <option value="type industry">type industry</option>
+                    <option value="stable industry">stable industry</option>
+                </select>
+            </td>
+            <td id="scorecell1">0</td>
+            <td>
+                <select onchange="changescore2(this)">
+                    <option value="Growings industry">Growings industry</option>
+                    <option value="types industry">types industry</option>
+                    <option value="stables industry">stables industry</option>
+                </select>
+            </td>
+            <td id="scorecell2">0</td>
+            <td>
+                <select onchange="changescore3(this)">
+                    <option value="stable">stable</option>
+                    <option value="type">type<option>
+                    <option value="industry">industry</option>
+                </select>
+            </td>
+            <td id="scorecell3">0</td>
+        </tr>
+        <tr>
+            <td>Competitiveness</td>
+            <td>
+                <select onchange="changescore11(this)">
+                    <option value="Too many player high roce">Too many player high roce</option>
+                    <option value="Too many player low roce">Too many player low roce</option>
+                </select>
+            </td>
+            <td id="scorecell11">0</td>
+            <td>
+                <select onchange="changescore12(this)">
+                    <option value="Oligopoly">Oligopoly</option>
+                    <option value="not">not</option>
+                </select>
+            </td>
+            <td id="scorecell12">0</td>
+            <td>
+                <select onchange="changescore13(this)">
+                    <option value="monopoly">monopoly</option>
+                    <option value="no">no</option>
+                </select>
+            </td>
+            <td id=scorecell13">0</td>
+        </tr>
+        <tr>
+            <td>Regulation</td>
+            <td>
+                <select onchange="changescore21(this)">
+                    <option value="agree">agree</option>
+                    <option value="disagree">disagree</option>
+                </select>
+            </td>
+            <td id="scorecell21">0</td>
+            <td>
+                <select onchange="changescore22(this)">
+                    <option value="yes">yes</option>
+                    <option value="none">none</option>
+                </select>
+            </td>
+            <td id="scorecell22">0</td>
+            <td>
+                <select onchange="changescore23(this)">
+                    <option value="right">right</option>
+                    <option value="not">not</option>
+                </select>
+            </td>
+            <td id="scorecell23">0</td>
+        </tr>
+        <tr>
+            <td >Sector Headwinds/Tailwind</td>
+            <td>
+                <select onchange="changescore31(this)">
+                    <option value="Tailwind">Tailwind</option>
+                    <option value="sector heawind">sector heawind</option>
+                </select>
+            <td id="scorecell31">0</td>
+            </td>
+            <td>
+                <select onchange="changescore32(this)">
+                    <option value="Tailwinds">Tailwinds</option>
+                    <option value="sector headwinds">sector headwinds</option>
+                </select>
+            <td id="scorecell32">0</td>
+            </td>
+            <td>
+                <select onchange="changescore33(this)">
+                    <option value="Tail">Tail</option>
+                    <option value="sector head">sector head</option>
+                </select>
+            <td id="scorecell33">0</td>
+            </td>
+        </tr>
+        <tr>
+            <td >Industry Type</td>
+            <td>
+                <select onchange="changescore41(this)">
+                    <option value="structural" >structural</option>
+                    <option value="shallow" >shallow</option>
+                </select>
+            <td id="scorecell41">0</td>
+            </td>
+            <td>
+                <select onchange="changescore42(this)" >
+                    <option value="structurals" >structurals</option>
+                    <option value="shallow cyclical" >shallow cyclical</option>
+                </select>
+            <td id="scorecell42">0</td>
+            </td>
+            <td>
+                <select onchange="changescore43(this)">
+                    <option value="structural(10 years consistency)" >sructural(10 years consistency)</option>
+                    <option value="shallow cyclical(2 to 3 year growth)">shallow cyclical(2 to 3 year growth)</option>
+                </select>
+            <td id="scorecell43">0</td>
+            </td>
+        </tr>    
+    </table>  
+    <script >
+        function changescore1(selectElement){ 
+            const scorecell1 = document.getElementById("scorecell1");
+          
+            if (selectElement.value === "Growing industry"){
+                scorecell1.textContent = "200";
+            } else if (selectElement.value === "type industry"){
+                scorecell1.textContent = "300";
+            } else if (selectElement.value === "stable industry"){
+                scorecell1.textContent = "400";
+            }
+        }
+        
+        function changescore2(selectElement){
+            const scorecell2 = document.getElementById("scorecell2");
+          
+            if (selectElement.value === "Growings industry"){
+                scorecell2.textContent = "50";
+            } else if (selectElement.value === "types industry"){
+                scorecell2.textContent = "70";
+            } else if (selectElement.value === "stables industry"){
+                scorecell2.textContent = "90";
+            }
+        }
+        
+        function changescore3(selectElement){
+            const scorecell3 = document.getElementById("scorecell3");
+          
+            if (selectElement.value === "stable"){
+                scorecell3.textContent = "50";
+            } else if (selectElement.value === "type"){
+                scorecell3.textContent = "20";
+            } else if (selectElement.value === "industry"){
+                scorecell3.textContent = "10";
+            }
+        }
+        
+        function changescore11(selectElement){
+            const scorecell11 = document.getElementById("scorecell11");
+          
+            if (selectElement.value === "Too many player high roce"){
+                scorecell11.textContent = "10";
+            } else if (selectElement.value === "Too many player low roce"){
+                scorecell11.textContent = "1";
+            }
+        }
+        
+        function changescore12(selectElement){
+            const scorecell12 = document.getElementById("scorecell12");
+          
+            if (selectElement.value === "Oligopoly"){
+                scorecell12.textContent = "50";
+            } else if (selectElement.value === "monopoly"){
+                scorecell12.textContent = "100";
+            } else if (selectElement.value === "not"){
+                scorecell12.textContent = "1";
+            }
+        }
+        
+        function changescore12(selectElement){
+            const scorecell12 = document.getElementById("scorecell12");
+          
+            if (selectElement.value === "Oligopoly"){
+                scorecell12.textContent = "50";
+            } else if (selectElement.value === "not"){
+                scorecell12.textContent = "1";
+            }
+        }
+        
+        function changescore13(selectElement){
+            const scorecell13 = document.getElementById("scorecell13");
+          
+            if (selectElement.value === "monopoly"){
+                scorecell13.textContent = "10";
+            } else if (selectElement.value === "no"){
+                scorecell13.textContent = "5";
+            }
+        }
+        
+        function changescore21(selectElement){
+            const scorecell21 = document.getElementById("scorecell21");
+          
+            if (selectElement.value === "agree"){
+                scorecell21.textContent = "100";
+            } else if (selectElement.value === "disagree"){
+                scorecell21.textContent = "10";
+            }
+        }
+        
+        function changescore22(selectElement){
+            const scorecell22 = document.getElementById("scorecell22");
+          
+            if (selectElement.value === "yes"){
+                scorecell22.textContent = "100";
+            } else if (selectElement.value === "none"){
+                scorecell22.textContent = "10";
+            }
+        }
+        
+        function changescore23(selectElement){
+            const scorecell23 = document.getElementById("scorecell23");
+          
+            if (selectElement.value === "right"){
+                scorecell23.textContent = "10";
+            } else if (selectElement.value === "not"){
+                scorecell23.textContent = "5";
+            }
+        }
+        
+        function changescore31(selectElement){
+            const scorecell31 = document.getElementById("scorecell31");
+          
+            if (selectElement.value === "Tailwind"){
+                scorecell31.textContent = "10";
+            } else if (selectElement.value === "sector heawind"){
+                scorecell31.textContent = "5";
+            }
+        }
+        
+        function changescore32(selectElement){
+            const scorecell32 = document.getElementById("scorecell32");
+          
+            if (selectElement.value === "Tailwinds"){
+                scorecell32.textContent = "10";
+            } else if (selectElement.value === "sector headwinds"){
+                scorecell32.textContent = "5";
+            }
+        }
+        
+        function changescore33(selectElement){
+            const scorecell33 = document.getElementById("scorecell33");
+          
+            if (selectElement.value === "Tail"){
+                scorecell33.textContent = "10";
+            } else if (selectElement.value === "sector head"){
+                scorecell33.textContent = "5";
+            }
+        }
+        
+        function changescore41(selectElement){
+            const scorecell41= document.getElementById("scorecell41");
+          
+            if (selectElement.value === "structural"){
+                scorecell41.textContent = "10";
+            } else if (selectElement.value === "shallow"){
+                scorecell41.textContent = "5";
+            }
+        }
+        
+        function changescore42(selectElement){
+            const scorecell42 = document.getElementById("scorecell42");
+          
+            if (selectElement.value === "structurals"){
+                scorecell42.textContent = "10";
+            } else if (selectElement.value === "shallow cyclical"){
+                scorecell42.textContent = "5";
+            }
+        }
+        
+        function changescore43(selectElement){
+            const scorecell43 = document.getElementById("scorecell43");
+          
+            if (selectElement.value === "structural(10 years consistency)"){
+                scorecell43.textContent = "10";
+            } else if (selectElement.value === "shallow cyclical(2 to 3 year growth)"){
+                scorecell43.textContent = "5";
+            }
+        }
+    </script>
+</body> 
+</html>
+ -->
