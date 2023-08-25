@@ -1,0 +1,379 @@
+ <!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+table, th, td {
+    border: 1px solid black; 
+    border-collapse: collapse;  
+}
+</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information Sheet</title>
+</head>
+<body>
+    <table width="500">
+        <tr bgcolor="skyblue">
+            <th contenteditable="true">Industry Analysis</th>
+            <th contenteditable="true">C1</th>
+            <th contenteditable="true">score C1</th> 
+            <th contenteditable="true">C2</th>
+            <th contenteditable="true">score C2</th>
+            <th contenteditable="true">C3</th>
+            <th contenteditable="true">score C3</th>
+        </tr>
+        <tr>
+            <td>industry Growth</td>
+            <td index="input" index2="c1">
+                <select>
+                    <option value="10">Growing industry</option>
+                    <option value="5">Stable industry</option>
+                    <option value="15">Type industry</option>
+                </select>
+            </td>
+            <td index="score" index2="c1">0</td>
+            <td index="input" index2="c2">
+                <select>
+                    <option value="25">Growing industry</option>
+                    <option value="20">Stable industry</option>
+                    <option value="30">Type industry</option>
+                </select>
+            </td>
+            <td index="score" index2="c2">0</td>
+            <td index="input" index2="c3">
+                <select>
+                    <option value="25">Growing industry</option>
+                    <option value="20">Stable industry</option>
+                    <option value="30">Type industry</option>
+                </select>
+            </td>
+            <td index="score" index2="c3">0</td>
+        </tr>
+        <tr>
+            <td>Competitiveness</td>
+            <td index="input" index2="c1">
+                <select>
+                    <option value="10">Too many players with hight ROCE</option>
+                    <option value="5">Oligopoly</option>
+                    <option value="15">Monopoly</option>
+                </select>
+            </td>
+            <td index="score" index2="c1">0</td>
+            <td index="input" index2="c2">
+                <select>
+                    <option value="25">Too many players with hight ROCE</option>
+                    <option value="20">Oligopoly</option>
+                    <option value="30">Monopoly</option>
+                </select>
+            </td>
+            <td index="score" index2="c2">0</td>
+            <td index="input" index2="c3">
+                <select>
+                    <option value="25">Too many players with hight ROCE</option>
+                    <option value="20">Oligopoly</option>
+                    <option value="30">Monopoly</option>
+                </select>
+            </td>
+            <td index="score" index2="c3">0</td>
+        </tr>
+        <tr>
+            <td>Regulation</td>
+            <td index="input" index2="c1">
+                <select>
+                    <option value="10">yes</option>
+                    <option value="5">no</option>
+                </select>
+            </td>
+            <td index="score" index2="c1">0</td>
+            <td index="input" index2="c2">
+                <select>
+                    <option value="25">yes</option>
+                    <option value="20">no</option>
+                </select>
+            </td>
+            <td index="score" index2="c2">0</td>
+            <td index="input" index2="c3">
+                <select>
+                    <option value="25">yes</option>
+                    <option value="20">no</option>
+                </select>
+            </td>
+            <td index="score" index2="c3">0</td>
+        </tr>
+        <tr>
+            <td>Sector Headwinds/Tailwind</td>
+            <td index="input" index2="c1">
+                <select>
+                    <option value="10">Tailwind</option>
+                    <option value="5">sector heading</option>
+                </select>
+            </td>
+            <td index="score" index2="c1">0</td>
+            <td index="input" index2="c2">
+                <select>
+                    <option value="25">Tailwind</option>
+                    <option value="20">sector heading</option>
+                </select>
+            </td>
+            <td index="score" index2="c2">0</td>
+            <td index="input" index2="c3">
+                <select>
+                    <option value="25">Tailwind</option>
+                    <option value="20">sector heading</option>
+                </select>
+            </td>
+            <td index="score" index2="c3">0</td>
+        </tr>
+        <tr>
+            <td>Industry Type</td>
+            <td index="input" index2="c1">
+                <select>
+                    <option value="10">structural(10 years consistency)</option>
+                    <option value="5">shallow cyclical(2 to 3 years growth)</option>
+                </select>
+            </td>
+            <td index="score" index2="c1">0</td>
+            <td index="input" index2="c2">
+                <select>
+                    <option value="25">structural(10 years consistency)</option>
+                    <option value="20">shallow cyclical(2 to 3 years growth)</option>
+                </select>
+            </td>
+            <td index="score" index2="c2">0</td>
+            <td index="input" index2="c3">
+                <select>
+                    <option value="25">structural(10 years consistency)</option>
+                    <option value="20">shallow cyclical(2 to 3 years growth)</option>
+                </select>
+            </td>
+            <td index="score" index2="c3">0</td>
+        </tr>
+            <td>Total Score</td>
+            <td index="total-score" index2="c1">0</td>
+            <td></td>
+            <td index="total-score" index2="c2">0</td>
+            <td></td>
+            <td index="total-score" index2="c3">0</td>
+        </tr>
+    </table>  
+    <script>
+        const inputCells = document.querySelectorAll('td[index="input"]');
+        inputCells.forEach((inputCell) => {
+            const dropdown = inputCell.querySelector('select');
+            dropdown.addEventListener('change', (e) => {
+                const scoreCell = inputCell.nextElementSibling;
+                scoreCell.textContent = e.target.value;
+
+                const company = inputCell.getAttribute('index2');
+                const scoreCells = document.querySelectorAll(`td[index="score"][index2="${company}"]`);
+                let sum = 0;
+                scoreCells.forEach((cell) => {
+                     sum += parseInt(cell.textContent);
+                });
+                const totalScoreCell = document.querySelector(`td[index="total-score"][index2="${company}"]`);
+                totalScoreCell.textContent = sum;
+            });
+        });
+    </script>
+</body> 
+</html>  -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+table, th, td {
+    border: 1px solid black; 
+    border-collapse: collapse;  
+}
+</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information Sheet</title>
+</head>
+<body>
+    <table width="500">
+        <tr bgcolor="skyblue">
+            <th>Industry Analysis</th>
+            <th id="C1" contenteditable="true">C1</th>
+            <th >score C1</th>
+            <th id="C2" contenteditable="true">C2</th>
+            <th >score C2</th>
+            <th id="C3" contenteditable="true">C3</th>
+            <th>score C3</th>
+        </tr>
+        <td>industry Growth</td>
+        <td index="input" index2="c1">
+            <select>
+                <option value="10">Growing industry</option>
+                <option value="5">Stable industry</option>
+                <option value="15">Type industry</option>
+            </select>
+        </td>
+        <td index="score" index2="c1">0</td>
+        <td index="input" index2="c2">
+            <select>
+                <option value="25">Growing industry</option>
+                <option value="20">Stable industry</option>
+                <option value="30">Type industry</option>
+            </select>
+        </td>
+        <td index="score" index2="c2">0</td>
+        <td index="input" index2="c3">
+            <select>
+                <option value="25">Growing industry</option>
+                <option value="20">Stable industry</option>
+                <option value="30">Type industry</option>
+            </select>
+        </td>
+        <td index="score" index2="c3">0</td>
+    </tr>
+    <tr>
+        <td>Competitiveness</td>
+        <td index="input" index2="c1">
+            <select>
+                <option value="10">Too many players with hight ROCE</option>
+                <option value="5">Oligopoly</option>
+                <option value="15">Monopoly</option>
+            </select>
+        </td>
+        <td index="score" index2="c1">0</td>
+        <td index="input" index2="c2">
+            <select>
+                <option value="25">Too many players with hight ROCE</option>
+                <option value="20">Oligopoly</option>
+                <option value="30">Monopoly</option>
+            </select>
+        </td>
+        <td index="score" index2="c2">0</td>
+        <td index="input" index2="c3">
+            <select>
+                <option value="25">Too many players with hight ROCE</option>
+                <option value="20">Oligopoly</option>
+                <option value="30">Monopoly</option>
+            </select>
+        </td>
+        <td index="score" index2="c3">0</td>
+    </tr>
+    <tr>
+        <td>Regulation</td>
+        <td index="input" index2="c1">
+            <select>
+                <option value="10">yes</option>
+                <option value="5">no</option>
+            </select>
+        </td>
+        <td index="score" index2="c1">0</td>
+        <td index="input" index2="c2">
+            <select>
+                <option value="25">yes</option>
+                <option value="20">no</option>
+            </select>
+        </td>
+        <td index="score" index2="c2">0</td>
+        <td index="input" index2="c3">
+            <select>
+                <option value="25">yes</option>
+                <option value="20">no</option>
+            </select>
+        </td>
+        <td index="score" index2="c3">0</td>
+    </tr>
+    <tr>
+        <td>Sector Headwinds/Tailwind</td>
+        <td index="input" index2="c1">
+            <select>
+                <option value="10">Tailwind</option>
+                <option value="5">sector heading</option>
+            </select>
+        </td>
+        <td index="score" index2="c1">0</td>
+        <td index="input" index2="c2">
+            <select>
+                <option value="25">Tailwind</option>
+                <option value="20">sector heading</option>
+            </select>
+        </td>
+        <td index="score" index2="c2">0</td>
+        <td index="input" index2="c3">
+            <select>
+                <option value="25">Tailwind</option>
+                <option value="20">sector heading</option>
+            </select>
+        </td>
+        <td index="score" index2="c3">0</td>
+    </tr>
+    <tr>
+        <td>Industry Type</td>
+        <td index="input" index2="c1">
+            <select>
+                <option value="10">structural(10 years consistency)</option>
+                <option value="5">shallow cyclical(2 to 3 years growth)</option>
+            </select>
+        </td>
+        <td index="score" index2="c1">0</td>
+        <td index="input" index2="c2">
+            <select>
+                <option value="25">structural(10 years consistency)</option>
+                <option value="20">shallow cyclical(2 to 3 years growth)</option>
+            </select>
+        </td>
+        <td index="score" index2="c2">0</td>
+        <td index="input" index2="c3">
+            <select>
+                <option value="25">structural(10 years consistency)</option>
+                <option value="20">shallow cyclical(2 to 3 years growth)</option>
+            </select>
+        </td>
+        <td index="score" index2="c3">0</td>
+    </tr>
+        <td></td>
+        <td></td>
+        <td index="total-score" index2="c1">0</td>
+        <td></td>
+        <td index="total-score" index2="c2">0</td>
+        <td></td>
+        <td index="total-score" index2="c3">0</td>
+    </table>  
+    <script>
+        const headingCells = document.querySelectorAll('th[contenteditable="true"]');
+        headingCells.forEach((headingCell) => {
+            headingCell.addEventListener('input', (e) => {
+                const newText = e.target.textContent;
+                const correspondingScoreCell = headingCell.nextElementSibling;
+                correspondingScoreCell.textContent = newText;
+            });
+        });
+        
+        const inputCells = document.querySelectorAll('td[index="input"]');
+        inputCells.forEach((inputCell) => {
+            const dropdown = inputCell.querySelector('select');
+            dropdown.addEventListener('change', (e) => {
+                const scoreCell = inputCell.nextElementSibling;
+                scoreCell.textContent = e.target.value;
+
+                const company = inputCell.getAttribute('index2');
+                const scoreCells = document.querySelectorAll(`td[index="score"][index2="${company}"]`);
+                let sum = 0;
+                scoreCells.forEach((cell) => {
+                     sum += parseInt(cell.textContent);
+                });
+                const totalScoreCell = document.querySelector(`td[index="total-score"][index2="${company}"]`);
+                totalScoreCell.textContent = sum;
+            });
+        });
+
+        var  c1cell = document.getElementById(c1);
+        var scorec1cell = document.getElementById(scorec1);
+        function updatascorecell(){
+            var newc1value = c1cell.textContent;
+            var score="score"
+            var newscorevalue = score + newc1value;
+            scorec1cell.textContent = newscorec1value;
+        }
+        c1cell.addEventListener("input",updatascorecell);
+
+    </script>
+</body> 
+</html>  -->
